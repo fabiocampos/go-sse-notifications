@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+        <body>
+                <div id="events">
+            
+                </div>
+                
+<script>
+    var evtSource = new EventSource("http://localhost:3000", { withCredentials: false } ); 
+
+    evtSource.onmessage = function(e) {
+        
+    var newElement = document.createElement("li");
+    var eventList = document.getElementById('events');
+
+    newElement.innerHTML = "message: " + e.data;
+    eventList.appendChild(newElement);
+}
+</script>
+</body>
+</html>
